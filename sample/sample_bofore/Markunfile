@@ -1,0 +1,7 @@
+# encoding: utf-8
+
+# have menu or not
+# have_menu allow only String
+# have_menu's default value => "false"
+have_menu "true"
+
