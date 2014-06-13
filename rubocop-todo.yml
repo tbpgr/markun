@@ -6,5 +6,5 @@
 # versions of RuboCop, may require this file to be generated again.
 
 # Offense count: 6
-UnusedMethodArgument:
-  Enabled: false
+# UnusedMethodArgument:
+#   Enabled: false

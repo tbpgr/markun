@@ -57,7 +57,7 @@ have_menu "false"
         md = File.read(file)
         contents = Kramdown::Document.new(md.force_encoding('utf-8')).to_html
         menu = get_menu(file, have_menu)
-        html = get_html_template(File.basename(file, '.md'), contents, menu)
+        html = html_template(File.basename(file, '.md'), contents, menu)
         html_file_name = file.gsub('.md', '.html')
         File.open(html_file_name, 'w:utf-8') { |f|f.puts html.encode('utf-8') }
       end
@@ -70,7 +70,9 @@ have_menu "false"
       create_menu base
     end
 
-    def get_html_template(title, contents, menu)
+    # rubocop:disable UnusedMethodArgument
+    def html_template(title, contents, menu)
+      # rubocop:enable UnusedMethodArgument
       erb = ERB.new(HTML_TEMPLATE)
       erb.result(binding)
     end

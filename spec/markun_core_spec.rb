@@ -42,12 +42,12 @@ describe Markun::Core do
         end
       end
 
-      def case_before(c)
+      def case_before(c) # rubocop:disable UnusedMethodArgument
         Dir.mkdir(OUTPUT_DSL_TMP_DIR) unless Dir.exist? OUTPUT_DSL_TMP_DIR
         Dir.chdir(OUTPUT_DSL_TMP_DIR)
       end
 
-      def case_after(c)
+      def case_after(c) # rubocop:disable UnusedMethodArgument
         Dir.chdir('../')
         FileUtils.rm_rf(OUTPUT_DSL_TMP_DIR) if Dir.exist? OUTPUT_DSL_TMP_DIR
       end
@@ -150,7 +150,7 @@ line
         File.open(Markun::Core::MARKUN_FILE, 'w') { |f|f.print c[:markunfile] }
       end
 
-      def case_after(c)
+      def case_after(c) # rubocop:disable UnusedMethodArgument
         Dir.chdir('../')
         return unless Dir.exist? OUTPUT_MARKDOWN_TMP_DIR
         FileUtils.rm_rf(OUTPUT_MARKDOWN_TMP_DIR)
