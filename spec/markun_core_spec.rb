@@ -138,7 +138,9 @@ line
       end
 
       def case_before(c)
-        Dir.mkdir(OUTPUT_MARKDOWN_TMP_DIR) unless Dir.exist? OUTPUT_MARKDOWN_TMP_DIR
+        unless Dir.exist? OUTPUT_MARKDOWN_TMP_DIR
+          Dir.mkdir(OUTPUT_MARKDOWN_TMP_DIR)
+        end
         Dir.chdir(OUTPUT_MARKDOWN_TMP_DIR)
         c[:inputs_filenames].each_with_index do |file, index|
           dir = File.dirname(file)
@@ -150,7 +152,8 @@ line
 
       def case_after(c)
         Dir.chdir('../')
-        FileUtils.rm_rf(OUTPUT_MARKDOWN_TMP_DIR) if Dir.exist? OUTPUT_MARKDOWN_TMP_DIR
+        return unless Dir.exist? OUTPUT_MARKDOWN_TMP_DIR
+        FileUtils.rm_rf(OUTPUT_MARKDOWN_TMP_DIR)
       end
     end
   end
