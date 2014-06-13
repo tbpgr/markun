@@ -97,8 +97,8 @@ have_menu "false"
     def urls_to_menu(urls, base)
       ret = []
       urls.each do |f|
-        _filename = Pathname.new(f.gsub('md', 'html')).relative_path_from(base)
-        ret << "<a href='#{_filename}'>#{_filename}</a><br />"
+        file = Pathname.new(f.gsub('md', 'html')).relative_path_from(base)
+        ret << "<a href='#{file}'>#{file}</a><br />"
       end
       ret.join('') + '<hr />'
     end
