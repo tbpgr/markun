@@ -127,7 +127,7 @@ line
           markun_core.execute
 
           # -- then --
-          c[:expected_files].each_with_index do |f, index|
+          c[:expected_files].each do |f|
             actual = File.exist?("#{f}")
             expect(actual).to be_true
           end
