@@ -81,7 +81,7 @@ have_menu "false"
     end
 
     def get_urls(urls)
-      urls += get_each_urls
+      urls += each_urls
       Dir.glob('*/') do |d|
         Dir.chdir(d)
         urls = get_urls(urls)
@@ -90,7 +90,7 @@ have_menu "false"
       urls
     end
 
-    def get_each_urls
+    def each_urls
       Dir.glob('./*.md').map { |f|File.absolute_path(f) }
     end
 
