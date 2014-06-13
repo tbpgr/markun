@@ -43,13 +43,13 @@ describe Markun::Core do
       end
 
       def case_before(c)
-        Dir.mkdir(OUTPUT_DSL_TMP_DIR) unless Dir.exists? OUTPUT_DSL_TMP_DIR
+        Dir.mkdir(OUTPUT_DSL_TMP_DIR) unless Dir.exist? OUTPUT_DSL_TMP_DIR
         Dir.chdir(OUTPUT_DSL_TMP_DIR)
       end
 
       def case_after(c)
         Dir.chdir('../')
-        FileUtils.rm_rf(OUTPUT_DSL_TMP_DIR) if Dir.exists? OUTPUT_DSL_TMP_DIR
+        FileUtils.rm_rf(OUTPUT_DSL_TMP_DIR) if Dir.exist? OUTPUT_DSL_TMP_DIR
       end
     end
   end
@@ -128,7 +128,7 @@ line
 
           # -- then --
           c[:expected_files].each_with_index do |f, index|
-            actual = File.exists?("#{f}")
+            actual = File.exist?("#{f}")
             expect(actual).to be_true
           end
         ensure
@@ -138,11 +138,11 @@ line
       end
 
       def case_before(c)
-        Dir.mkdir(OUTPUT_MARKDOWN_TMP_DIR) unless Dir.exists? OUTPUT_MARKDOWN_TMP_DIR
+        Dir.mkdir(OUTPUT_MARKDOWN_TMP_DIR) unless Dir.exist? OUTPUT_MARKDOWN_TMP_DIR
         Dir.chdir(OUTPUT_MARKDOWN_TMP_DIR)
         c[:inputs_filenames].each_with_index do |file, index|
           dir = File.dirname(file)
-          FileUtils.mkdir_p dir unless File.exists?(dir)
+          FileUtils.mkdir_p dir unless File.exist?(dir)
           File.open(file, 'w') { |f|f.print c[:inputs_contents][index] }
         end
         File.open(Markun::Core::MARKUN_FILE, 'w') { |f|f.print c[:markunfile] }
@@ -150,7 +150,7 @@ line
 
       def case_after(c)
         Dir.chdir('../')
-        FileUtils.rm_rf(OUTPUT_MARKDOWN_TMP_DIR) if Dir.exists? OUTPUT_MARKDOWN_TMP_DIR
+        FileUtils.rm_rf(OUTPUT_MARKDOWN_TMP_DIR) if Dir.exist? OUTPUT_MARKDOWN_TMP_DIR
       end
     end
   end

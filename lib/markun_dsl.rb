@@ -9,14 +9,14 @@ module Markun
     # String Define
     [:have_menu].each do |f|
       define_method f do |value|
-        eval "@markun.#{f.to_s} = '#{value}'", binding
+        eval "@markun.#{f} = '#{value}'", binding
       end
     end
 
     # Array/Hash Define
     [].each do |f|
       define_method f do |value|
-        eval "@markun.#{f.to_s} = #{value}", binding
+        eval "@markun.#{f} = #{value}", binding
       end
     end
 

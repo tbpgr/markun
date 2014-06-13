@@ -8,6 +8,5 @@ module Markun
 
     # have menu or not
     attr_accessor :have_menu
-
   end
 end
