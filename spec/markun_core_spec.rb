@@ -12,12 +12,12 @@ describe Markun::Core do
         case_no: 1,
         case_title: 'valid case',
         expected_files: [
-          Markun::Core::MARKUN_FILE,
+          Markun::Core::MARKUN_FILE
         ],
         expected_contents: [
-          Markun::Core::MARKUN_TEMPLATE,
-        ],
-      },
+          Markun::Core::MARKUN_TEMPLATE
+        ]
+      }
     ]
 
     cases.each do |c|
@@ -103,7 +103,7 @@ line
         markunfile: MARKUNFILE_CASE1,
         inputs_filenames: ['markdown1.md', 'markdown2.md'],
         inputs_contents: [MARKDOWN1, MARKDOWN2],
-        expected_files: ['markdown1.html', 'markdown2.html'],
+        expected_files: ['markdown1.html', 'markdown2.html']
       },
       {
         case_no: 2,
@@ -111,8 +111,8 @@ line
         markunfile: MARKUNFILE_CASE2,
         inputs_filenames: ['markdown1.md', './sub/markdown2.md'],
         inputs_contents: [MARKDOWN1, MARKDOWN2],
-        expected_files: ['markdown1.html', './sub/markdown2.html'],
-      },
+        expected_files: ['markdown1.html', './sub/markdown2.html']
+      }
     ]
 
     cases.each do |c|
